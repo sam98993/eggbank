@@ -1981,3 +1981,6 @@
 2024-05-14 17:04:03,289 INFO 8896 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
 2024-05-14 17:04:03,289 INFO 8896 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/clean_log.js
 2024-05-14 17:04:03,289 INFO 8896 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2024-05-16 14:16:18,387 INFO 11963 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2024-05-16 14:16:18,387 INFO 11963 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/clean_log.js
+2024-05-16 14:16:18,387 INFO 11963 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
