@@ -1,0 +1,196 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-05-08T05:58:02.172Z",
+    "end": "2024-05-08T05:58:02.274Z",
+    "duration": 102,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e7708143-0ba8-4187-9187-0d4b47fdd587",
+      "title": "",
+      "fullFile": "/Users/sam98993/Desktop/Sam/egg-bank/test/app/controller/home.test.js",
+      "file": "/test/app/controller/home.test.js",
+      "beforeHooks": [
+        {
+          "title": "\"before all\" hook: beforeAll in \"{root}\"",
+          "fullTitle": "\"before all\" hook: beforeAll in \"{root}\"",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "const app = await appHandler.getApp();\ndebug('mochaHooks.beforeAll call, _app: %s', app);\nif (app) {\n  await app.ready();\n}",
+          "err": {},
+          "uuid": "0777356f-1b9f-4ceb-9efe-21a0b8faddc5",
+          "parentUUID": "e7708143-0ba8-4187-9187-0d4b47fdd587",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "afterHooks": [
+        {
+          "title": "\"after all\" hook: afterAll in \"{root}\"",
+          "fullTitle": "\"after all\" hook: afterAll in \"{root}\"",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "// skip auto app close on parallel\nif (process.env.ENABLE_MOCHA_PARALLEL) return;\nconst app = await appHandler.getApp();\ndebug('mochaHooks.afterAll call, _app: %s', app);\nif (app) {\n  await app.close();\n}",
+          "err": {},
+          "uuid": "797426fc-1968-4503-9b3d-9a380e7928dd",
+          "parentUUID": "e7708143-0ba8-4187-9187-0d4b47fdd587",
+          "isHook": true,
+          "skipped": false
+        },
+        {
+          "title": "\"after each\" hook: afterEach in \"{root}\"",
+          "fullTitle": "\"after each\" hook: afterEach in \"{root}\"",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "const app = await appHandler.getApp();\ndebug('mochaHooks.afterEach call, _app: %s', app);\nif (app) {\n  await app.backgroundTasksFinished();\n}\nawait mock.restore();",
+          "err": {},
+          "uuid": "aadf3188-04a8-4cb0-8246-97832ec0c026",
+          "parentUUID": "e7708143-0ba8-4187-9187-0d4b47fdd587",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d53f3986-d4cc-4877-8ae3-c9583f1c9f01",
+          "title": "test/app/controller/home.test.js",
+          "fullFile": "/Users/sam98993/Desktop/Sam/egg-bank/test/app/controller/home.test.js",
+          "file": "/test/app/controller/home.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should assert",
+              "fullTitle": "test/app/controller/home.test.js should assert",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const pkg = require('../../../package.json');\nassert(app.config.keys.startsWith(pkg.name));",
+              "err": {},
+              "uuid": "6ad9437e-bac8-4829-9a62-a9fc69d9d25c",
+              "parentUUID": "d53f3986-d4cc-4877-8ae3-c9583f1c9f01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should typings exists",
+              "fullTitle": "test/app/controller/home.test.js should typings exists",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const typings = path.join(__dirname, '../../../typings');\nassert(statSync(typings));",
+              "err": {},
+              "uuid": "bbaaf7c3-1780-49e7-8282-8f7f23e1c216",
+              "parentUUID": "d53f3986-d4cc-4877-8ae3-c9583f1c9f01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should GET /",
+              "fullTitle": "test/app/controller/home.test.js should GET /",
+              "timedOut": false,
+              "duration": 7,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return app.httpRequest()\n  .get('/')\n  .expect('hi, egg')\n  .expect(200);",
+              "err": {},
+              "uuid": "6108bd90-e1fc-45b3-8f87-51f042cc5c2e",
+              "parentUUID": "d53f3986-d4cc-4877-8ae3-c9583f1c9f01",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6ad9437e-bac8-4829-9a62-a9fc69d9d25c",
+            "bbaaf7c3-1780-49e7-8282-8f7f23e1c216",
+            "6108bd90-e1fc-45b3-8f87-51f042cc5c2e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.4.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "node_modules/.mochawesome-reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

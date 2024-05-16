@@ -3,9 +3,8 @@ const Controller = require('egg').Controller;
 class Money1Controller extends Controller {
     async list() {
       const { ctx } = this;
-      // const result = await this.app.mysql.get('users', { id: ctx.params.uid })
       const result = await this.app.model.Users.findByPk(ctx.params.uid)
-      if (result.money<=0) {
+      if (result.money <= 0) {
         const message = "餘額不足"
         const dataList = {
           list: { id: result.id, money: result.money, msg: message },

@@ -2,14 +2,11 @@ const Controller = require('egg').Controller;
 
 class MoneyController extends Controller {
     async list() {
-      const fs = require('node:fs')
       const { ctx } = this;
       var message = ""
-      // const result = await this.app.mysql.get('users', { id: ctx.request.body.uid })
       const result = await this.app.model.Users.findByPk(ctx.request.body.uid)
-      const file = result.name+'.txt'
-      if (fs.existsSync(file)) {
-        message = fs.readFileSync(file, 'Utf-8')
+      if (result.summary !== "") {
+        message = result.summary
       } else {
         message = "尚無交易紀錄"
       }
