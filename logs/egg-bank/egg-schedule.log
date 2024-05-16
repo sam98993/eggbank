@@ -1981,6 +1981,9 @@
 2024-05-14 17:04:03,289 INFO 8896 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
 2024-05-14 17:04:03,289 INFO 8896 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/clean_log.js
 2024-05-14 17:04:03,289 INFO 8896 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
-2024-05-16 14:16:18,387 INFO 11963 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
-2024-05-16 14:16:18,387 INFO 11963 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/clean_log.js
-2024-05-16 14:16:18,387 INFO 11963 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2024-05-16 14:11:35,377 INFO 11618 [Timer] /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 51504624ms at 2024-05-17 04:30:00.001
+2024-05-16 14:11:35,377 INFO 11618 [Timer] /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 35304623ms at 2024-05-17 00:00:00.000
+2024-05-16 14:11:35,377 INFO 11618 [Timer] /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 35305623ms at 2024-05-17 00:00:01.000
+2024-05-16 14:11:35,242 INFO 11619 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2024-05-16 14:11:35,242 INFO 11619 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/clean_log.js
+2024-05-16 14:11:35,242 INFO 11619 [egg-schedule]: register schedule /Users/sam98993/Desktop/Sam/egg-bank/node_modules/egg-logrotator/app/schedule/rotate_by_file.js

@@ -4,7 +4,6 @@
 
 import 'egg';
 import ExportConclude = require('../../../app/controller/conclude');
-import ExportHome = require('../../../app/controller/home');
 import ExportLogin = require('../../../app/controller/login');
 import ExportLoginCheck = require('../../../app/controller/loginCheck');
 import ExportMoney = require('../../../app/controller/money');
@@ -14,7 +13,6 @@ import ExportMoney2 = require('../../../app/controller/money2');
 declare module 'egg' {
   interface IController {
     conclude: ExportConclude;
-    home: ExportHome;
     login: ExportLogin;
     loginCheck: ExportLoginCheck;
     money: ExportMoney;
