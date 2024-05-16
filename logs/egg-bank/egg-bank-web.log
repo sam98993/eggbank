@@ -2253,3 +2253,6 @@ hostname: TangChuandebijixingdiannao.local
 2024-05-16 14:26:01,919 INFO 12225 [-/127.0.0.1/-/7ms POST /conclude/1] [egg-sequelize](2ms) Executed (default): UPDATE `users` SET `money`=?,`summary`=CONCAT(`summary`, '提款金額為：500元，所剩餘額為：500元\n') WHERE `id` = ?
 2024-05-16 14:26:01,921 INFO 12225 [-/127.0.0.1/-/10ms POST /conclude/1] [egg-sequelize](0ms) Executed (default): SELECT `id`, `username`, `password`, `name`, `money`, `summary` FROM `users` AS `users` WHERE `users`.`id` = '1';
 2024-05-16 14:26:02,545 INFO 12225 [-/::1/-/4ms POST /money] [egg-sequelize](2ms) Executed (default): SELECT `id`, `username`, `password`, `name`, `money`, `summary` FROM `users` AS `users` WHERE `users`.`id` = '1';
+2024-05-16 14:44:34,138 INFO 12838 [egg-sequelize](1ms) Executed (default): SELECT 1+1 AS result
+2024-05-16 14:44:49,453 INFO 12838 [-/::1/-/27ms POST /loginCheck] [egg-sequelize](1ms) Executed (default): SELECT `id`, `username`, `password`, `name`, `money`, `summary` FROM `users` AS `users`;
+2024-05-16 14:44:50,482 INFO 12838 [-/127.0.0.1/-/9ms POST /money] [egg-sequelize](2ms) Executed (default): SELECT `id`, `username`, `password`, `name`, `money`, `summary` FROM `users` AS `users` WHERE `users`.`id` = '1';
