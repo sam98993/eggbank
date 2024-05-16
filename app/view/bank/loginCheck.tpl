@@ -4,7 +4,7 @@
   </head>
   <body>
     <ul class="loginCheck-view view">
-      <form action="../money" method="POST" name="myform">
+      <form action="../bank" method="POST" name="myform">
         <p>{{list.name}}&nbsp&nbsp登入成功！</p>
         <p><input type="submit" value="確認"></p>
         <input type="hidden" name="uid" id="uid" value={{list.id}}>

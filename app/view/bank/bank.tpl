@@ -3,7 +3,7 @@
     <title>Egg Bank</title>
   </head>
   <body>
-    <ul class="money-view view">
+    <ul class="bank-view view">
       {% for item in list %}
       <li class="item">
         <p><input type="button" id="money{{ item.id }}" name="money{{ item.id }}" value="{{ item.title }}" onclick="location.href='../{{ item.url }}/{{ item.uid }}';"/></p>
