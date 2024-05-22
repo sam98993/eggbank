@@ -4,9 +4,13 @@
 module.exports = app => {
   const { router, controller } = app;
   router.get('/login', controller.users.login);
-  router.post('/loginCheck', controller.users.check);
-  router.post('/bank', controller.users.bank);
-  router.get('/withdraw/:uid', controller.users.withdraw);
-  router.get('/deposit/:uid', controller.users.deposit);
-  router.post('/result/:mode', controller.users.result);
+  router.post('/loginCheck', controller.users.loginCheck);
+  router.get('/register', controller.users.register);
+  router.post('/registerCheck', controller.users.registerCheck);
+  router.post('/bank', controller.bank.bank);
+  router.get('/withdraw/:uid/:mode', controller.bank.transaction);
+  router.get('/deposit/:uid/:mode', controller.bank.transaction);
+  router.get('/searchByUserId/:uid/:mode', controller.summaries.searchByUserId);
+  router.post('/searchByDate', controller.summaries.searchByDate);
+  router.post('/result/:mode', controller.bank.result);
 };

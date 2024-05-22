@@ -3,12 +3,12 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const { INTEGER, DATE, STRING, TEXT } = Sequelize;
+    const { INTEGER, DATE, TEXT } = Sequelize;
     await queryInterface.createTable('users', {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-      username: STRING(255),
-      password: STRING(255),
-      name: STRING(255),
+      money: { type: INTEGER },
+      summary: TEXT,
+      user_id: INTEGER,
       created_at: DATE,
       updated_at: DATE,
     });
