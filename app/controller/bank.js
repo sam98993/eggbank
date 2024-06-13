@@ -12,12 +12,12 @@ class BankController extends Controller {
       const { ctx } = this
       const id = ctx.params.uid
       const mode = ctx.params.mode
-      const dataList = await this.service.bank.transaction(id)
+      const data = { id: id }
 
-      if (mode === "1") {        
-        await this.ctx.render('bank/withdraw.tpl', dataList)
+      if (mode === '1') {        
+        await this.ctx.render('bank/withdraw.tpl', data)
       } else {
-        await this.ctx.render('bank/deposit.tpl', dataList)
+        await this.ctx.render('bank/deposit.tpl', data)
       }      
     }
 
@@ -25,14 +25,13 @@ class BankController extends Controller {
       const { ctx } = this
       const mode = ctx.params.mode
       const id = ctx.request.body.uid
-      const input = ctx.request.body.num2
-      const left = ctx.request.body.txtResult
+      const input = ctx.request.body.num
       let message = await this.service.bank.errorMessage(id, input, mode)
 
-      if (message !== "") {
+      if (message !== '') {
         await this.service.bank.resultMessage(id, message)
       } else {
-        message = await this.service.bank.update(id, mode, input, left, message)
+        message = await this.service.bank.update(id, input, mode, message)
           
         await this.service.bank.resultMessage(id, message)
       }

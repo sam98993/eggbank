@@ -5,10 +5,12 @@ module.exports = {
   //   enable: true,
   // }
 };
+
 module.exports.nunjucks = {
   enable: true,
   package: 'egg-view-nunjucks',
 };
+
 module.exports.mysql = {
   enable: true,
   package: 'egg-mysql'
@@ -17,4 +19,9 @@ module.exports.mysql = {
 module.exports.sequelize = {
   enable: true,
   package: 'egg-sequelize',
+};
+
+module.exports.redis = {
+  enable: true,
+  package: 'egg-redis',
 };

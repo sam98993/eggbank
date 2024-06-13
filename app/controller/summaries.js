@@ -8,12 +8,16 @@ class SummariesController extends Controller {
       await this.ctx.render('bank/searchByUserId.tpl', data)    
     }
 
-    async searchByDate() {
+    async search() {
       const { ctx } = this
       const id = ctx.request.body.uid
-      const date = ctx.request.body.date
+      const startDate = ctx.request.body.startDate
+      const endDate = ctx.request.body.endDate
+      const mode = ctx.request.body.mode
+      const compare = ctx.request.body.compare
+      const changes = ctx.request.body.changes
 
-      await this.service.summaries.search(id , date)    
+      await this.service.summaries.search(id , startDate, endDate, mode, compare, changes)    
     }
   }
 

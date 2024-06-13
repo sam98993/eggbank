@@ -22,7 +22,7 @@
       {% endfor %}
       
       <p>帳戶餘額：{{ list[0].money }}元</p>
-      <p>交易紀錄：</p>
+      <p>近期交易紀錄：</p>
       <p style = "white-space: pre-line">{{ list[0].msg }}</p>
       
       <a href = "login" onclick = "if (confirm('確定要登出嗎？')) { return true } 

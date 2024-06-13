@@ -11,6 +11,6 @@ module.exports = app => {
   router.get('/withdraw/:uid/:mode', controller.bank.transaction);
   router.get('/deposit/:uid/:mode', controller.bank.transaction);
   router.get('/searchByUserId/:uid/:mode', controller.summaries.searchByUserId);
-  router.post('/searchByDate', controller.summaries.searchByDate);
+  router.post('/search', controller.summaries.search);
   router.post('/result/:mode', controller.bank.result);
 };

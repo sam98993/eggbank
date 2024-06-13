@@ -6,8 +6,10 @@ module.exports = {
     const { INTEGER, DATE, STRING } = Sequelize;
     await queryInterface.createTable('summaries', {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-      content: STRING(255),
       created: DATE,
+      mode: INTEGER,
+      changes: INTEGER,
+      balance: INTEGER,
       user_id: INTEGER
     });
   },
