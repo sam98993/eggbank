@@ -6,7 +6,7 @@ module.exports = {
     const { INTEGER, DATE, STRING, TEXT } = Sequelize;
     await queryInterface.createTable('users', {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-      username: STRING(255),
+      username: { type: STRING(255), unique: true },
       password: STRING(255),
       name: STRING(255),
       created_at: DATE,

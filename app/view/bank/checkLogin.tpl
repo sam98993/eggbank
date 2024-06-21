@@ -8,7 +8,7 @@
 
   <body>
 
-    <ul class = "loginCheck-view view">
+    <ul class = "checkLogin-view view">
       
       <form action = "../bank" method = "POST" name = "myform">
         

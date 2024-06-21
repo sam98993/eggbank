@@ -2,9 +2,7 @@ const Service = require('egg').Service
 const dateFormat = require('dateformat')
 
 class BankService extends Service {
-  async home(id) {
-    const result = await this.app.redis.hgetall(`bank_account:${id}`)
-    const money = result.money
+  async setScriptForMessage() {
     const script = `
       local message = redis.call('GET', KEYS[1])
       if message == '' then
@@ -17,40 +15,11 @@ class BankService extends Service {
       end
       return message
     `
-
-    const message = await this.app.redis.eval(script, 1, `summaries:${id}`)
     
-    const dataList = {
-      list: [        
-        { 
-          id: 1, 
-          title: '提款', 
-          url: 'withdraw', 
-          uid: id, 
-          money: money, 
-          msg: message           
-        }, { 
-          id: 2, 
-          title: '存款', 
-          url: 'deposit', 
-          uid: id,
-          money: money, 
-          msg: message        
-        }, {             
-          id: 3, 
-          title: '搜尋', 
-          url: 'searchByUserId', 
-          uid: id,
-          money: money, 
-          msg: message           
-        },
-      ],
-    }
-
-    await this.ctx.render('bank/bank.tpl', dataList)
+    return script
   }
 
-  async errorMessage(id, input, mode) {
+  async checkErrorMessage(id, input, mode) {
     const haveDecimalPoint = input % 1
     let message = ''
     const result = await this.app.redis.hgetall(`bank_account:${id}`)
@@ -77,34 +46,33 @@ class BankService extends Service {
     return message
   }
 
-  async resultMessage(id, message) {
+  async showResultMessage(id, message) {
     const dataList = {
       list: {        
         id: id, 
-        msg: message      
+        message: message      
       }
     }
 
     await this.ctx.render('bank/result.tpl', dataList)
   }
 
-  async update(id, input, mode, message) {
-    const  script = `
-      local user_key = KEYS[1]
-      local changes = tonumber(ARGV[1])
-      local current_value = tonumber(redis.call('HGET', user_key, 'money'))
-      local new_value
-      if ARGV[2] == '1' then
-        new_value = current_value - changes
-      else
-        new_value = current_value + changes
-      end
-      redis.call('HSET', user_key, 'money', new_value)
-      return new_value
-    `
+  async updateBankAccount(id, input, mode) {
+    const changes = Number(input)
 
-    const balance = await this.app.redis.eval(script, 1, `bank_account:${id}`, input, mode)
+    let increment = 0
+    if (mode === '1') {
+      increment = -changes
+    } else {
+      increment = changes
+    }
     
+    const balance = await this.app.redis.hincrby(`bank_account:${id}`, 'money', increment)
+
+    return balance
+  }
+
+  async setContent(id, input, mode, balance) {
     const content = {
       "created":`${Date()}`,
       "mode":`${mode}`,
@@ -113,11 +81,15 @@ class BankService extends Service {
       "user_id":`${id}`
     }
 
-    const content_str = `${JSON.stringify(content)}\n`
+    const contentString = `${JSON.stringify(content)}\n`
 
-    await this.app.redis.append('content', content_str)
+    await this.app.redis.lpush('content', contentString)
 
-    const script2 = `
+    return content
+  }
+
+  async updateSummaries(id, input, mode, balance) {
+    const script = `
       local key = KEYS[1]
       local value = redis.call('GET', key)
       local lines = {}
@@ -133,31 +105,26 @@ class BankService extends Service {
       return value
     `
 
-    if (mode === '1') {
-      mode = '提款'
-    } else {
-      mode = '存款'
-    }
-
     const date = dateFormat(new Date(), 'yyyy-mm-dd')
-    const sum = `${date}：${mode}：${input}元，餘額：${balance}元`
+    const summary = `${date}：${mode}：${input}元，餘額：${balance}元`
 
-    const value = await this.app.redis.eval(script2, 1, `summaries:${id}`, sum)
-    const new_value = value.replace(/\n/g, '###')
+    const summaries = await this.app.redis.eval(script, 1, `summaries:${id}`, summary)
+
+    return summaries
+  }
+
+  async appendLogger(id, balance, summaries, content) {
+    const replacedSummaries = summaries.replace(/\n/g, '###')
 
     const logger = this.app.getLogger('RBLogger')
 
-    const command1 = `hset bank_account:${id} money ${balance}`
-    const command2 = `append content \'${JSON.stringify(content)}\'`
-    const command3 = `set summaries:${id} ${new_value}`
+    const commandToHsetBankAccount = `hset bank_account:${id} money ${balance}`
+    const commandToLpushContent = `lpush content \'${JSON.stringify(content)}\'`
+    const commandToSetSummaries = `set summaries:${id} ${replacedSummaries}`
 
-    logger.info(command1)
-    logger.info(command2)
-    logger.info(command3)
-
-    message = `${mode}金額為：${input}元，所剩餘額為：${balance}元`
-
-    return message
+    logger.info(commandToHsetBankAccount)
+    logger.info(commandToLpushContent)
+    logger.info(commandToSetSummaries)
   }
 }
 

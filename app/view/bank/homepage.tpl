@@ -8,7 +8,7 @@
 
   <body>
 
-    <ul class = "bank-view view">
+    <ul class = "homepage-view view">
 
       {% for item in list %}
 
@@ -21,9 +21,9 @@
       
       {% endfor %}
       
-      <p>帳戶餘額：{{ list[0].money }}元</p>
+      <p>帳戶餘額：{{ money }}元</p>
       <p>近期交易紀錄：</p>
-      <p style = "white-space: pre-line">{{ list[0].msg }}</p>
+      <p style = "white-space: pre-line">{{ message }}</p>
       
       <a href = "login" onclick = "if (confirm('確定要登出嗎？')) { return true } 
                                    else { event.stopPropagation(); event.preventDefault() }">(登出)</a>

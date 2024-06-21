@@ -10,7 +10,7 @@
   
     <ul class = "register-view view">
   
-      <form action = "../registerCheck" method = "POST" name = "myform">
+      <form action = "../checkRegister" method = "POST" name = "myform">
   
         <p>帳號：<input type =" text" name = "username" id = "username"></p>
         <p>密碼：<input type = "text" name = "password" id = "password"></p>

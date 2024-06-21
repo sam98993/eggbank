@@ -8,11 +8,11 @@
 
   <body>
 
-    <ul class = "message-view view">
+    <ul class = "result-view view">
       
       <form action = "../bank" method = "POST" name = "myform">
     
-        <p style = "white-space: pre-line">{{ list.msg }}</p>
+        <p style = "white-space: pre-line">{{ list.message }}</p>
           
         <p><input type = "submit" value = "回首頁"></p>
         

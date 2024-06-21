@@ -12,7 +12,7 @@
       
       <form action = "../login" method = "GET" name = "myform">
         
-        <p>{{ msg }}</p>
+        <p>{{ message }}</p>
         
         <p><input type = "submit" value = "返回"></p>
       

@@ -9,9 +9,9 @@
 
   <body>
 
-    <ul class = "search-view view">
+    <ul class = "setSearchingConditions-view view">
       
-      <form action = "../../search" method = "POST" name = "myform">
+      <form action = "../../searchResults" method = "POST" name = "myform">
 
         <p>交易模式：
         <input name = "mode">
